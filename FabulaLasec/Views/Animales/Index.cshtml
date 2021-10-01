@@ -1,0 +1,111 @@
+﻿@model FabulaLasec.Models.ViewModels.AnimalViewModel
+
+
+@{
+    ViewBag.Title = "Animales";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Animales</title>
+</head>
+<body>
+
+    <div class="row"><button type="button" class="btn-primary" data-target="#ModalNuevaCarrera" data-toggle="modal">Nueva Carrera</button></div>
+
+    <div>
+
+        <div id="listaAnimales" class="listaAnim">
+            @Html.Partial("_ListaAnimalesPartialView", Model.listaAnimales)
+        </div>
+
+    </div>
+
+
+
+
+    <div class="modal" id="ModalNuevaCarrera" role="dialog">
+        <div class="modal-dialog">
+            @*@using (Html.BeginForm("AgregarEmpleado", "Home", FormMethod.Post))
+                {*@
+
+            @using (Ajax.BeginForm("ComenzarCarrera", "Animales", new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "listaAnimales" }))
+            {
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1>NUEVA CARRERA!!</h1>
+                        <button class="close" data-dismiss="modal">&times;</button>
+
+                        <div class="modal-body">
+                            <h3>Animal 1</h3>
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.Carr.Animal1.Nombre)
+                                @Html.TextBoxFor(x => x.Carr.Animal1.Nombre)
+
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.Carr.Animal1.Velocidad)
+                                @Html.TextBoxFor(x => x.Carr.Animal1.Velocidad)
+                            </div>
+
+                        </div>
+
+                        <h3>Animal 2</h3>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.Carr.Animal2.Nombre)
+                                @Html.TextBoxFor(x => x.Carr.Animal2.Nombre)
+
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.Carr.Animal2.Velocidad)
+                                @Html.TextBoxFor(x => x.Carr.Animal2.Velocidad)
+                            </div>
+
+
+                        </div>
+                        <div class="modal-footer">
+                            <input type="submit" class="btn btn-success" onclick="cerrarModalCarrera()" value="A Correr!!!" />
+
+                        </div>
+
+                    </div>
+
+                </div>
+            }
+        </div>
+
+
+
+    </div>
+
+
+
+</body>
+
+@section scripts{
+
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+
+    <script type="text/javascript">
+
+        function cerrarModalCarrera() {
+
+            $('#ModalNuevaCarrera').modal('hide');
+
+    }
+
+    </script>
+
+
+/**/
+}
+/**/
+
+</html >
+
+

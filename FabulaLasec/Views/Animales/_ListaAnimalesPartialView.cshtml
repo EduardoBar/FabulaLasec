@@ -1,0 +1,48 @@
+﻿@model  List<FabulaLasec.Models.Animal>
+
+<div class="row">
+
+
+    <div class="col-md-10">
+        <table class="table">
+            <tr>
+                <th>idCarrera</th>
+                <th>Nombre</th>
+                <th>Velocidad</th>
+                <th>TiempoDeRecorrido</th>
+                <th>Resultado</th>
+
+
+            </tr>
+
+            @foreach (FabulaLasec.Models.Animal e in Model)
+            {
+        <tr>
+            <td>
+                @e.idCarrera
+            </td>
+            <td>
+                @e.Nombre
+            </td>
+            <td>
+                @e.Velocidad
+            </td>
+            <td>
+                @e.tiempoDeRecorrido
+            </td>
+
+            <td>
+                @e.Resultado
+            </td>
+
+
+            @*<td><button class="btn btn-primary " id="btnEditarEmpleado" data-toggle="modal" data_id=@e.ID>Editar</button><button button class="btn btn-danger btnEliminarEmpleado" id="btnEliminarEmpleado" data-toggle="modal" data_id=@e.ID>Eliminar</button></td>*@
+
+        </tr>
+            }
+
+        </table>
+
+    </div>
+
+</div>
